@@ -34,7 +34,7 @@ module.exports = {
 
       const time = 30 * 24 * 60 * 60 * 1000;
       res.cookie('refreshToken', userData.refreshToken, {
-        domain: '',
+        // domain: '',
         maxAge: time,
         httpOnly: true,
         secure: process.env.NODE_ENV === 'production' ? true : false
