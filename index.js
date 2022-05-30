@@ -5,6 +5,7 @@ const mongoose = require('mongoose');
 const { routes } = require('./src/routes');
 const cors = require('cors');
 const cookieParser = require('cookie-parser');
+
 // Middlewares
 const errorMiddleware = require('./src/middlewares/error.middleware');
 
@@ -27,7 +28,7 @@ routes.forEach(item => {
 });
 app.use(errorMiddleware);
 
-// Set data-base
+// Set start function
 function start() {
   try {
     const start = Date.now();
