@@ -10,7 +10,6 @@ module.exports = {
     try {
       const fixedArticle = article.split("_").join("/");
       const item = await Product.findOne({ article: fixedArticle }).populate("specifications.specObj");
-      console.log("get");
 
       return res.status(200).send(item);
     } catch (err) {
@@ -30,7 +29,6 @@ module.exports = {
     try {
       const products = await Product.find({ category })
         .populate("specifications.specObj");
-      console.log('getAllByCategory');
 
       return res.status(200).send(products);
     } catch (err) {
@@ -40,7 +38,6 @@ module.exports = {
   async getAllBySearch({ query }, res) {
     try {
       const products = await ProductService.getSearchedProducts(query);
-      console.log('getAllBySearch');
 
       return res.status(200).send(products);
     } catch (err) {
