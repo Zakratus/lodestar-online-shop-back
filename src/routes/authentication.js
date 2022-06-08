@@ -13,9 +13,7 @@ router.post('/logout', user.logout);
 
 router.get('/activate/:link', user.activate);
 router.get('/refresh', user.refresh);
-router.get('/users', authMiddleware, user.getUsers);
 
-router.delete('/user/delete', user.delete);
-
+// router.get('/users', authMiddleware, user.getUsers);
 
 module.exports = router;

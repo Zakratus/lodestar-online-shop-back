@@ -6,7 +6,7 @@ router.get('/byuser/:userId', order.getAllByUser)
 
 router.post('/create', order.createOrder);
 
-router.delete('/delete/:userId/:orderId', order.deleteOrder);
+// router.delete('/delete/:userId/:orderId', order.deleteOrder);
 
 
 module.exports = router;

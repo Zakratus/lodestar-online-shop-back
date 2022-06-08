@@ -10,6 +10,6 @@ router.put("/update",
   user.updateUser
 );
 
-router.delete('/delete', authMiddleware, user.deleteUser);
+// router.delete('/delete', authMiddleware, user.deleteUser);
 
 module.exports = router;
