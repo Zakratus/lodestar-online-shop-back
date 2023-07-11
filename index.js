@@ -8,11 +8,12 @@ const cookieParser = require('cookie-parser');
 
 // Middlewares
 const errorMiddleware = require('./src/middlewares/error.middleware');
+const apiRestrictionMiddleware = require('./src/middlewares/api.access.middleware');
 
 
 const PORT = process.env.PORT || 3000;
 
-// Inicialize app
+// Initialize app
 const app = express();
 
 app.use(cookieParser());
@@ -22,11 +23,13 @@ app.use(cors({
 }));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-// Inicialize routes
+
+// Initialize routes
 routes.forEach(item => {
   app.use(`/api/v1/${item}`, require(`./src/routes/${item}`));
 });
 app.use(errorMiddleware);
+app.use(apiRestrictionMiddleware);
 
 // Set start function
 function start() {
