@@ -9,6 +9,7 @@ const cookieParser = require('cookie-parser');
 // Middlewares
 const errorMiddleware = require('./src/middlewares/error.middleware');
 const apiRestrictionMiddleware = require('./src/middlewares/api.access.middleware');
+const vercelMiddleware = require('./src/middlewares/vercel.middleware');
 
 
 const PORT = process.env.PORT || 3000;
@@ -30,6 +31,7 @@ routes.forEach(item => {
 });
 app.use(errorMiddleware);
 app.use(apiRestrictionMiddleware);
+app.use(vercelMiddleware);
 
 // Set start function
 function start() {
